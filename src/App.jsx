@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
 import DisplayPlayers from './components/DisplayPlayers'
 import DisplaySinglePlayer from './components/DisplaySinglePlayer'
-import NewPlayerForm from './components/NewPlayerForm'
-import Navbar from './components/Navbar'
+import NewPlayerFormDisplay from './components/NewPlayerFormDisplay'
 import Dashboard from './components/Dashboard'
 import './App.css'
 
@@ -11,7 +11,6 @@ import './App.css'
 function App() {
   const [playerList, setPlayerList] = useState([]);
   const [singlePlayer, setSinglePlayer] = useState([]);
-  const [formDisplay, setFormDisplay] = useState(false)
 
   useEffect(() => {
     const fetchPlayerList = async() => {
@@ -32,8 +31,7 @@ function App() {
   return (
     <> 
       <Navbar />
-      <button onClick={() => setFormDisplay(!formDisplay)}>New Player Form</button>
-      {formDisplay ? <NewPlayerForm /> : null}
+      <NewPlayerFormDisplay />
       <Routes>
         <Route path='/' element={<Dashboard />} />
         <Route path='player-list' 

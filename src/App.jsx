@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import DisplayPlayers from './components/DisplayPlayers'
+import DisplaySinglePlayer from './components/DisplaySinglePlayer'
 import Navbar from './components/Navbar'
 import Dashboard from './components/Dashboard'
 import './App.css'
@@ -39,7 +40,8 @@ function App() {
                           playerList={playerList}
                         />}
         />
-        </Routes>
+        <Route path='players/:name' element={<DisplaySinglePlayer singlePlayer={singlePlayer}/>} />
+      </Routes>
     </>
   )
 }

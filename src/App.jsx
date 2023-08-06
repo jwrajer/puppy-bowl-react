@@ -40,7 +40,7 @@ function App() {
                           playerList={playerList}
                         />}
         />
-        <Route path='players/:name' element={<DisplaySinglePlayer singlePlayer={singlePlayer}/>} />
+        <Route path='players/:id' element={<DisplaySinglePlayer singlePlayer={singlePlayer}/>} />
       </Routes>
     </>
   )

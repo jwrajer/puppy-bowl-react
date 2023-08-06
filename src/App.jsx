@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <DisplayPlayers />
+      <DisplayPlayers playerList={playerList}/>
     </>
   )
 }

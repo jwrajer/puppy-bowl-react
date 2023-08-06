@@ -1,5 +1,11 @@
-const DisplayPlayers = () => {
-  return <h1>hello world</h1>
+const DisplayPlayers = ({ playerList }) => {
+  return (
+    <>
+      {playerList.map((player) => {
+        return <li>{player.name}</li>
+      })}
+    </>
+  )
 }
 
 export default DisplayPlayers

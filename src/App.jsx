@@ -56,13 +56,20 @@ function App() {
       />
       <Routes>
         <Route path='/' element={<Dashboard />} />
-        <Route path='player-list' 
-                element={<DisplayPlayers 
-                          setSinglePlayer={setSinglePlayer}
-                          playerList={playerList}
-                        />}
+        <Route 
+          path='player-list' 
+          element={<DisplayPlayers 
+            setSinglePlayer={setSinglePlayer}
+            playerList={playerList}
+          />}
         />
-        <Route path='players/:id' element={<DisplaySinglePlayer singlePlayer={singlePlayer}/>} />
+        <Route 
+          path='players/:id' 
+          element={<DisplaySinglePlayer 
+            singlePlayer={singlePlayer}
+            fetchPlayerList={fetchPlayerList}
+          />} 
+        />
       </Routes>
     </>
   )

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 
-const DisplaySinglePlayer = () => {
+const DisplaySinglePlayer = ({ fetchPlayerList }) => {
 
   const [singlePlayer, setSinglePlayer] = useState([]);
   const { id } = useParams();
@@ -21,7 +21,21 @@ const DisplaySinglePlayer = () => {
   }, [])
 
   const removePlayer = async() => {
-    console.log(singlePlayer.id);
+    confirm(`Are you sure you want to delete ${singlePlayer.name}?`)
+    try {
+      const response = await fetch(
+        `https://fsa-puppy-bowl.herokuapp.com/api/2306-fsa-et-web-ft/players/${id}`,
+        {
+          method: 'DELETE',
+        }
+      );
+      const result = await response.json();
+      console.log(result);
+    } catch (err) {
+      console.error(err);
+    }
+
+    fetchPlayerList();
   }
 
   return (
@@ -35,7 +49,9 @@ const DisplaySinglePlayer = () => {
         <img alt='player' src={singlePlayer.imageUrl} />
       </section>
       <section>
-        <button onClick={() => removePlayer()}>Delete Puppy</button>
+        <Link to='/player-list'>
+          <button onClick={() => removePlayer()}>Delete Puppy</button>
+        </ Link>
       </section>
     </section>
   )

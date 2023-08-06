@@ -1,5 +1,4 @@
-const DisplayPlayers = ({ playerList, fetchSinglePlayer, usePlayerState }) => {
-  console.log(playerList);
+const DisplayPlayers = ({ playerList, setSinglePlayer }) => {
   return (
     <>
       {playerList.map((player) => {
@@ -8,7 +7,7 @@ const DisplayPlayers = ({ playerList, fetchSinglePlayer, usePlayerState }) => {
           <section key={player.name}>
             <h2>{player.name}</h2>
             <img alt={altDescription}  src={player.imageUrl}/>
-            <button onClick={() => usePlayerState(player)}>See Details</button>
+            <button onClick={() => setSinglePlayer(player)}>See Details</button>
           </section>
         )
       })}

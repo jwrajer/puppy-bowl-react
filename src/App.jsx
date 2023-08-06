@@ -2,13 +2,10 @@ import { useState, useEffect } from 'react'
 import DisplayPlayers from './components/DisplayPlayers'
 import './App.css'
 
-// call api
-// get list of players
-// pass each button details
-// look into routes w uniqie ids
 
 function App() {
   const [playerList, setPlayerList] = useState([]);
+  const [singlePlayer, setSinglePlayer] = useState([]);
 
   useEffect(() => {
     const fetchPlayerList = async() => {
@@ -23,25 +20,15 @@ function App() {
     fetchPlayerList();
   }, [])
 
-  const fetchSinglePlayer = async(playerID) => {
-    try {
-      const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2306-fsa-et-web-ft/players/${playerID}`);
-      const data = await response.json();
-      console.log(data.data.player)
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  useEffect(() => {
+    console.log(singlePlayer);
+  }, [singlePlayer])
 
-  const usePlayerState = (player) => {
-    console.log(player)
-  }
 
   return (
     <>
       <DisplayPlayers 
-        usePlayerState={usePlayerState}
-        fetchSinglePlayer={fetchSinglePlayer} 
+        setSinglePlayer={setSinglePlayer}
         playerList={playerList}
       />
     </>

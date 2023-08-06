@@ -8,7 +8,7 @@ const CreateNewPlayer = ({ addNewPlayerToList }) => {
   return (
     <>
       <button onClick={() => setFormDisplay(!formDisplay)}>New Player Form</button>
-      {formDisplay ? <NewPlayerForm addNewPlayerToList={addNewPlayerToList}/> : null}
+      {formDisplay ? <NewPlayerForm formDisplay={formDisplay} setFormDisplay={setFormDisplay} addNewPlayerToList={addNewPlayerToList}/> : null}
     </>
   )
 }

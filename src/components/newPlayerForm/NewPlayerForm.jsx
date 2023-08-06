@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const NewPlayerForm = ({ addNewPlayerToList }) => {
+const NewPlayerForm = ({ addNewPlayerToList, formDisplay, setFormDisplay }) => {
 
   const [name, setName] = useState('');
   const [breed, setBreed] = useState('');
@@ -17,6 +17,7 @@ const NewPlayerForm = ({ addNewPlayerToList }) => {
     }
     confirm(`Is this the player you would like to submit?\nPlayer:${name}\nBreed:${breed}\nStatus:${status}`);
     addNewPlayerToList(newPlayer);
+  setFormDisplay(!formDisplay);
   }
 
   return (

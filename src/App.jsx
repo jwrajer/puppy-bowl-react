@@ -13,22 +13,39 @@ function App() {
   const [playerList, setPlayerList] = useState([]);
   const [singlePlayer, setSinglePlayer] = useState([]);
 
-  useEffect(() => {
-    const fetchPlayerList = async() => {
-      try {
-        const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2306-fsa-et-web-ft/players`);
-        const data = await response.json();
-        setPlayerList(data.data.players);
-        console.log(data.data.players)
-      } catch (err) {
-        console.log(err)
-      }
+  const fetchPlayerList = async() => {
+    try {
+      const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2306-fsa-et-web-ft/players`);
+      const data = await response.json();
+      setPlayerList(data.data.players);
+      console.log(data.data.players)
+    } catch (err) {
+      console.log(err)
     }
+  }
+  
+  useEffect(() => {
     fetchPlayerList();
   }, [])
 
   const addNewPlayerToList = async (newPlayer) => {
-    console.log(newPlayer);
+    try {
+      const response = await fetch(
+        'https://fsa-puppy-bowl.herokuapp.com/api/2306-fsa-et-web-ft/players',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newPlayer),
+        }
+      );
+      const result = await response.json();
+      console.log(result);
+    } catch (err) {
+      console.error(err);
+    };
+    fetchPlayerList();
   }
 
   return (

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import DisplayPlayers from './components/DisplayPlayers'
 import Navbar from './components/Navbar'
+import Dashboard from './components/Dashboard'
 import './App.css'
 
 
@@ -30,10 +31,15 @@ function App() {
   return (
     <> 
       <Navbar />
-      <DisplayPlayers 
-        setSinglePlayer={setSinglePlayer}
-        playerList={playerList}
-      />
+      <Routes>
+        <Route path='/' element={<Dashboard />} />
+        <Route path='player-list' 
+                element={<DisplayPlayers 
+                          setSinglePlayer={setSinglePlayer}
+                          playerList={playerList}
+                        />}
+        />
+        </Routes>
     </>
   )
 }

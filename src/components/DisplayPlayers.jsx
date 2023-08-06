@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const DisplayPlayers = ({ playerList, setSinglePlayer }) => {
   return (
     <>
@@ -7,7 +9,9 @@ const DisplayPlayers = ({ playerList, setSinglePlayer }) => {
           <section key={player.name}>
             <h2>{player.name}</h2>
             <img alt={altDescription}  src={player.imageUrl}/>
-            <button onClick={() => setSinglePlayer(player)}>See Details</button>
+            {/* <Link to='/player'> */}
+              <button onClick={() => setSinglePlayer(player)}>See Details</button>
+            {/* </Link> */}
           </section>
         )
       })}

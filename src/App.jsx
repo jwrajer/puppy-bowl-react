@@ -9,6 +9,7 @@ import './App.css'
 
 
 function App() {
+  
   const [playerList, setPlayerList] = useState([]);
   const [singlePlayer, setSinglePlayer] = useState([]);
 

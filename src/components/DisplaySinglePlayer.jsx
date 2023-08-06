@@ -30,7 +30,6 @@ const DisplaySinglePlayer = () => {
       <section className='player-image'>
         <img alt='player' src={singlePlayer.imageUrl} />
       </section>
-
     </section>
   )
 }

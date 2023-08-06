@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import DisplayPlayers from './components/DisplayPlayers'
 import './App.css'
 
 // call api
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <>
-      <h1>{playerList}</h1>
+      <DisplayPlayers />
     </>
   )
 }

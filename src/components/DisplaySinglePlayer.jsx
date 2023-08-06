@@ -7,9 +7,11 @@ const DisplaySinglePlayer = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchSinglePlayer = () => {
+    const fetchSinglePlayer = async () => {
       try {
-        console.log(id);
+        const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2306-fsa-et-web-ft/players/${id}`);
+        const data = await response.json();
+        setSinglePlayer(data.data.player);
       } catch (err) {
         console.log(err)
       }

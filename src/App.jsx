@@ -23,9 +23,27 @@ function App() {
     fetchPlayerList();
   }, [])
 
+  const fetchSinglePlayer = async(playerID) => {
+    try {
+      const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2306-fsa-et-web-ft/players/${playerID}`);
+      const data = await response.json();
+      console.log(data.data.player)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const usePlayerState = (player) => {
+    console.log(player)
+  }
+
   return (
     <>
-      <DisplayPlayers playerList={playerList}/>
+      <DisplayPlayers 
+        usePlayerState={usePlayerState}
+        fetchSinglePlayer={fetchSinglePlayer} 
+        playerList={playerList}
+      />
     </>
   )
 }

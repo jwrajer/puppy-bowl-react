@@ -3,13 +3,13 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import DisplayPlayers from './components/DisplayPlayers'
 import DisplaySinglePlayer from './components/DisplaySinglePlayer'
-import NewPlayerFormDisplay from './components/NewPlayerFormDisplay'
+import NewPlayerFormDisplay from './components/NewPlayerForm/NewPlayerFormDisplay'
 import Dashboard from './components/Dashboard'
 import './App.css'
 
 
 function App() {
-  
+
   const [playerList, setPlayerList] = useState([]);
   const [singlePlayer, setSinglePlayer] = useState([]);
 

@@ -20,6 +20,10 @@ const DisplaySinglePlayer = () => {
 
   }, [])
 
+  const removePlayer = async() => {
+    console.log(singlePlayer.id);
+  }
+
   return (
     <section className='player-card'>
       <section className='player-info'>
@@ -29,6 +33,9 @@ const DisplaySinglePlayer = () => {
       </section>
       <section className='player-image'>
         <img alt='player' src={singlePlayer.imageUrl} />
+      </section>
+      <section>
+        <button onClick={() => removePlayer()}>Delete Puppy</button>
       </section>
     </section>
   )

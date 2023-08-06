@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import DisplayPlayers from './components/DisplayPlayers'
 import DisplaySinglePlayer from './components/DisplaySinglePlayer'
-import NewPlayerFormDisplay from './components/NewPlayerForm/NewPlayerFormDisplay'
+import CreateNewPlayer from './components/newPlayerForm/CreateNewPlayer'
 import Dashboard from './components/Dashboard'
 import './App.css'
 
@@ -27,12 +27,16 @@ function App() {
     fetchPlayerList();
   }, [])
 
-
+  const addNewPlayerToList = async (newPlayer) => {
+    console.log(newPlayer);
+  }
 
   return (
     <> 
       <Navbar />
-      <NewPlayerFormDisplay />
+      <CreateNewPlayer 
+        addNewPlayerToList={addNewPlayerToList}
+      />
       <Routes>
         <Route path='/' element={<Dashboard />} />
         <Route path='player-list' 

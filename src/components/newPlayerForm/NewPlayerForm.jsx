@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const NewPlayerForm = () => {
+const NewPlayerForm = ({ addNewPlayerToList }) => {
 
   const [name, setName] = useState('');
   const [breed, setBreed] = useState('');
@@ -15,31 +15,37 @@ const NewPlayerForm = () => {
       imageUrl,
       status
     }
-    console.log(newPlayer)
+    confirm(`Is this the player you would like to submit?\nPlayer:${name}\nBreed:${breed}\nStatus:${status}`);
+    addNewPlayerToList(newPlayer);
   }
 
   return (
     <section className='new-player-form'>
       <form onSubmit={formHandler}>
         <input
+          required
           placeholder='Name'
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
           <input
+            required
             placeholder='Breed'
             value={breed}
             onChange={(event) => setBreed(event.target.value)}
             />
         <input
+          required
           placeholder='Image URL'
           value={imageUrl}
           onChange={(event) => setImageUrl(event.target.value)}
         />
         <label>
           <input
+            required
             type='radio'
             value='bench'
+            name='status'
             checked={status === 'bench'}
             onChange={(event) => setStatus(event.target.value)}
           />
@@ -47,8 +53,10 @@ const NewPlayerForm = () => {
         </label>
         <label>
           <input
+            required
             type='radio'
             value='field'
+            name='status'
             checked={status === 'field'}
             onChange={(event) => setStatus(event.target.value)}
           />

@@ -19,6 +19,7 @@ function App() {
         const response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2306-fsa-et-web-ft/players`);
         const data = await response.json();
         setPlayerList(data.data.players);
+        console.log(data.data.players)
       } catch (err) {
         console.log(err)
       }

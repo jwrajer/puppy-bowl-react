@@ -8,6 +8,7 @@
 
 - Looking for feedback on how logic/components are laid out and how I made who is responsible for what. Also what is using state and effect vs what isnt. Initially had the single players rendering from the state of saved players but then saw (I think in the setup guide? or useparams video?) that a requirement was using params to call the api for single player.
 
+- Going forward along with commiting frequently, i am going to use a prettier more
 
 ## 8/7 notes
 

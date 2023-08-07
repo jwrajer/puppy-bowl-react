@@ -13,3 +13,5 @@
 ## 8/7 notes
 
 - watching Jonathan do this demo w pokemon list, in retrospect I should have kept the puppy list state in the component so when you nav iagte back to puppy list, it would load w updated puppies. As it stands right now I call the fetch puppy every time i delete or add and then send you to the puppy list.
+
+- Wondering if it would have been better to search the array with route:id instead of calling the api for the single puppy with route:id

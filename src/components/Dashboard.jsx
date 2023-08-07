@@ -1,7 +1,7 @@
 const Dashboard = () => {
   return (
     <>
-      <h1>Good Morning</h1>
+      <h1>Good Morning: player updates etc</h1>
     </>
   )
 }
